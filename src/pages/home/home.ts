@@ -1,7 +1,8 @@
+import { LocationService } from './../../app/services/location.service';
 import { FlightsPage } from './../flights/flights';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Geolocation } from '@ionic-native/geolocation';
+
 
 @Component({
   selector: 'page-home',
@@ -9,8 +10,9 @@ import { Geolocation } from '@ionic-native/geolocation';
 })
 export class HomePage {
   isAllowed: boolean;
+  coordinates: any;
 
-  constructor(public navCtrl: NavController, private geolocation: Geolocation) {
+  constructor(public navCtrl: NavController, private locationSv: LocationService) {
 
   }
 
@@ -18,15 +20,13 @@ export class HomePage {
     this.isAllowed = allowed;
     if(this.isAllowed) {
       this.navCtrl.push(FlightsPage);
-      this.getLocation();
+      this.locationSv.getLocation()
+      .then((res) => {
+        this.coordinates = {
+          lat: res.coords.latitude,
+          long: res.coords.longitude
+        }
+      });
     }
   }
-
-  getLocation() {
-    this.geolocation.getCurrentPosition()
-    .then((res) => {
-      console.log(res.coords.latitude, res.coords.longitude);
-    })
-  }
-
 }

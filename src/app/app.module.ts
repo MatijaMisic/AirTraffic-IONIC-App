@@ -1,3 +1,4 @@
+import { LocationService } from './services/location.service';
 import { FlightsPage } from './../pages/flights/flights';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -17,7 +18,8 @@ import { Geolocation } from '@ionic-native/geolocation';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,6 +31,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LocationService,
     Geolocation
   ]
 })
