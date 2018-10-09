@@ -19,16 +19,10 @@ export class HomePage {
   checkPermision(allowed) {
     this.isAllowed = allowed;
     if(this.isAllowed) {
-      this.navCtrl.push(FlightsPage);
-      this.locationSv.getLocation()
+      this.locationSv.getPermisions()
       .then((res) => {
-        this.coordinates = {
-          lat: res.coords.latitude,
-          long: res.coords.longitude
-        }
-        console.log(this.coordinates);
-
-      });
+        this.navCtrl.push(FlightsPage);
+      })
     }
   }
 }
