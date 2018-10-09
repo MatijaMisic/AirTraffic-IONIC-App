@@ -14,5 +14,9 @@
 
 
 <ion-content padding>
-
+  <ion-list >
+    <button ion-button block *ngFor='let flight of flights'>
+      {{flight.id}}
+    </button>
+  </ion-list>
 </ion-content>
