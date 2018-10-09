@@ -1,14 +1,17 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
+    <ion-title text-center>
+     Air Traffic
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <h2>Welcome to the Air Traffic control app</h2>
+  <img src='../../assets/imgs/plane.gif' alt='welcome message'>
+  <p>In order to check Air Traffic near you, you must authorize us to use your geolocation</p>
+
+  <button ion-button block (click)='checkPermision(false)'>Deny</button>
+  <button ion-button block (click)='checkPermision(true)'>Allow</button>
+  <p *ngIf='isAllowed == false'  class='denied'>If you do not authorize, you can't proceed further</p>
 </ion-content>
