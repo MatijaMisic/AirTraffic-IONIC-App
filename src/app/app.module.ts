@@ -20,6 +20,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     BrowserModule,
     IonicModule.forRoot(MyApp),
 
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [

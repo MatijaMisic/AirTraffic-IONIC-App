@@ -26,6 +26,8 @@ export class HomePage {
           lat: res.coords.latitude,
           long: res.coords.longitude
         }
+        console.log(this.coordinates);
+
       });
     }
   }
