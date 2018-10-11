@@ -1,3 +1,4 @@
+import { SingleFlightPage } from './../pages/single-flight/single-flight';
 import { LocationService } from './services/location.service';
 import { FlightsPage } from './../pages/flights/flights';
 import { BrowserModule } from '@angular/platform-browser';
@@ -14,7 +15,8 @@ import { Geolocation } from '@ionic-native/geolocation';
   declarations: [
     MyApp,
     HomePage,
-    FlightsPage
+    FlightsPage,
+    SingleFlightPage
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import { Geolocation } from '@ionic-native/geolocation';
   entryComponents: [
     MyApp,
     HomePage,
-    FlightsPage
+    FlightsPage,
+    SingleFlightPage
   ],
   providers: [
     StatusBar,

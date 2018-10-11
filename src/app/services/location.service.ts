@@ -36,9 +36,12 @@ export class LocationService {
   fetchFlights() {
     const url = `http://public-api.adsbexchange.com/VirtualRadar/AircraftList.json?lat=${this.lat}&lng=${this.long}&fDstL=0&fDstU=100`;
     const response = this.http.get(url).toPromise();
-    return response.then((res) => {
-      res.acList.map((flight) => {
-        this.flights.push(new Flight(flight.Id, flight.Alt, flight.Call, flight.Cnum, flight.Man, flight.Mdl, flight.From, flight.To, flight.Op));
+    return response.then((res: any) => {
+      this.flights = res.acList.map((flight) => {
+        let direction:string = (flight.CNum % 2 === 0) ? "W" : "E";
+        let altitude: number = Math.round(flight.Alt * 0.304);
+
+         return new Flight(flight.Id, altitude, flight.Call, direction, flight.Man, flight.Mdl, flight.From, flight.To, flight.Op)
       })
     })
   }

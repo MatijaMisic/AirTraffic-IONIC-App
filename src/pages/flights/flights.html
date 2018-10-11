@@ -5,18 +5,40 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title text-center>Flights</ion-title>
-  </ion-navbar>
-
+ <ion-grid>
+   <ion-row>
+     <ion-col class='header-images'>
+      <img src='../../assets/imgs/compass.png' alt='compas'>
+     </ion-col>
+     <ion-col>
+      <ion-title text-center class="titleicon">Flights</ion-title>
+     </ion-col>
+     <ion-col class='header-images'>
+      <img src='../../assets/imgs/altitude2.png' alt='compas'>
+     </ion-col>
+   </ion-row>
+ </ion-grid>
+</ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-  <ion-list >
-    <button ion-button block *ngFor='let flight of flights'>
+
+    <!-- <button ion-button block *ngFor='let flight of flights'>
       {{flight.id}}
-    </button>
-  </ion-list>
+    </button> -->
+  <ion-grid>
+    <ion-row ion-button color='secondary'*ngFor='let flight of flights' (click)='singleFlightClicked(flight.originAiroport, flight.destinationAiroport, flight.model, flight.logo)'>
+      <ion-col >
+        <img src='../../assets/imgs//airWest.jpg' *ngIf='flight.direction == "W"'>
+        <img src='../../assets/imgs//airEast.jpg' *ngIf='flight.direction == "E"'>
+
+      </ion-col>
+      <ion-col>{{flight.manufacturer}}</ion-col>
+      <ion-col>{{flight.altitude}}m</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+
