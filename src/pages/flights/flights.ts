@@ -21,14 +21,18 @@ export class FlightsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad FlightsPage');
     this.navbar.hideBackButton = true;
-    this.getFlights();
-    this.interval = setInterval(() => {
-      this.getFlights()
-    }, 60000);
 
   }
 
   ionViewDidLeave(){
+    clearInterval(this.interval);
+  }
+
+  ionViewWillEnter() {
+    this.getFlights();
+    this.interval = setInterval(() => {
+      this.getFlights()
+    }, 60000);
 
   }
 

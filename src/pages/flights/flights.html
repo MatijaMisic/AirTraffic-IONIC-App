@@ -35,7 +35,8 @@
         <img src='../../assets/imgs//airEast.jpg' *ngIf='flight.direction == "E"'>
 
       </ion-col>
-      <ion-col>{{flight.manufacturer}}</ion-col>
+      <ion-col *ngIf='flight.manufacturer'>{{flight.manufacturer}}</ion-col>
+      <ion-col *ngIf='!flight.manufacturer'>Private flight</ion-col>
       <ion-col>{{flight.altitude}}m</ion-col>
     </ion-row>
   </ion-grid>

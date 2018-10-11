@@ -14,12 +14,24 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'single-flight.html',
 })
 export class SingleFlightPage {
+  logo: string;
+  origin: string;
+  destination: string;
+  model: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SingleFlightPage');
+    this.logo = this.getParams('logo');
+    this.origin = this.getParams('origin');
+    this.destination = this.getParams('destination');
+    this.model = this.getParams('model');
+  }
+
+  getParams(data: string) {
+    return this.navParams.get(data)
   }
 
 }
