@@ -2,7 +2,7 @@ import { SingleFlightPage } from './../single-flight/single-flight';
 import { Flight } from './../../app/models/flight';
 import { LocationService } from './../../app/services/location.service';
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Navbar } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Navbar, LoadingController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -14,7 +14,7 @@ export class FlightsPage {
   flights: Flight[] = [];
   interval: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private locationSv: LocationService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private locationSv: LocationService, private loadingCtrl: LoadingController) {
 
   }
 
@@ -38,11 +38,16 @@ export class FlightsPage {
 
 
   getFlights() {
+    const loading = this.loadingCtrl.create({
+      content: 'Getting flights...'
+    })
+    loading.present();
     this.locationSv.fetchFlights()
     .then((res) => {
       this.flights = this.locationSv.getFlights().sort((a, b) => {
         return b.altitude - a.altitude
       });
+      loading.dismiss();
     })
   }
 
