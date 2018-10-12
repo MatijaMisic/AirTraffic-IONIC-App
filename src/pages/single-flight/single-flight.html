@@ -15,15 +15,39 @@
 
 <ion-content padding>
   <ion-card>
-    <img src="../../assets//imgs/"/>
-    <ion-card-content>
-      <ion-card-title>
-        Nine Inch Nails Live
-        </ion-card-title>
-      <p>
-        The most popular industrial group ever, and largely
-        responsible for bringing the music to a mass audience.
-      </p>
-    </ion-card-content>
+
+    <img src="../../assets//imgs/singleflight.jpg">
+    <ion-fab right top>
+      <button ion-fab>
+        <ion-icon name="plane"></ion-icon>
+      </button>
+    </ion-fab>
+    <ion-item>
+      <ion-icon name="arrow-dropup-circle" item-start large></ion-icon>
+      <h2 *ngIf='!origin'>Private flight</h2>
+      <h2 *ngIf='origin'>{{origin}}</h2>
+      <p>{{model}}</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="arrow-dropdown-circle" item-start large ></ion-icon>
+      <h2 *ngIf='!destination'>Private flight</h2>
+      <h2 *ngIf='destination'>{{destination}}</h2>
+      <p>{{model}}</p>
+    </ion-item>
+
+    <ion-item>
+      <span item-start>{{altitude}}</span>
+      <span item-start>(meters)</span>
+      <button ion-button icon-start clear item-end>
+        <ion-icon name="navigate"></ion-icon>
+        Altitude
+      </button>
+    </ion-item>
   </ion-card>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <p text-center>Copyright: Matija Misic</p>
+  </ion-toolbar>
+</ion-footer>

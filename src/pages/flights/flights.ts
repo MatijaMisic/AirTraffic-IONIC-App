@@ -43,11 +43,10 @@ export class FlightsPage {
       this.flights = this.locationSv.getFlights().sort((a, b) => {
         return b.altitude - a.altitude
       });
-      console.log(this.flights);
     })
   }
 
-  singleFlightClicked(origin, destination, model, logo) {
-    this.navCtrl.push(SingleFlightPage, {origin, destination, model, logo})
+  singleFlightClicked(altitude, origin, destination, model, logo, ) {
+    this.navCtrl.push(SingleFlightPage, {altitude, origin, destination, model, logo, })
   }
 }

@@ -18,6 +18,7 @@ export class SingleFlightPage {
   origin: string;
   destination: string;
   model: string;
+  altitude: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -28,9 +29,14 @@ export class SingleFlightPage {
     this.origin = this.getParams('origin');
     this.destination = this.getParams('destination');
     this.model = this.getParams('model');
+    this.altitude = this.getParams('altitude');
+    console.log(this.altitude);
+
   }
 
   getParams(data: string) {
+    console.log(this.navParams.data);
+
     return this.navParams.get(data)
   }
 

@@ -29,7 +29,7 @@
       {{flight.id}}
     </button> -->
   <ion-grid>
-    <ion-row ion-button color='secondary'*ngFor='let flight of flights' (click)='singleFlightClicked(flight.originAiroport, flight.destinationAiroport, flight.model, flight.logo)'>
+    <ion-row ion-button color='secondary'*ngFor='let flight of flights' (click)='singleFlightClicked(flight.altitude, flight.originAiroport, flight.destinationAiroport, flight.model, flight.logo)'>
       <ion-col >
         <img src='../../assets/imgs//airWest.jpg' *ngIf='flight.direction == "W"'>
         <img src='../../assets/imgs//airEast.jpg' *ngIf='flight.direction == "E"'>
@@ -41,5 +41,10 @@
     </ion-row>
   </ion-grid>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <p text-center>Copyright: Matija Misic</p>
+  </ion-toolbar>
+</ion-footer>
 
 
