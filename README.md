@@ -12,7 +12,7 @@ Check air traffic near your location
 
 # Stack
 
-    -   Language:   HTML5, CSS3, JS(ES6)
+    -   Language:   HTML5, CSS3, JS(ES6),TypeScript
     -   Framework:  IONIC3, Angular, Cordova
     -   Created with: [Ionic CLI]
     
