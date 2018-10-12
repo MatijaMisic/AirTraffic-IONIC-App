@@ -24,19 +24,14 @@ export class SingleFlightPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SingleFlightPage');
     this.logo = this.getParams('logo');
     this.origin = this.getParams('origin');
     this.destination = this.getParams('destination');
     this.model = this.getParams('model');
     this.altitude = this.getParams('altitude');
-    console.log(this.altitude);
-
   }
 
   getParams(data: string) {
-    console.log(this.navParams.data);
-
     return this.navParams.get(data)
   }
 
